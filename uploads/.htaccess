@@ -1,0 +1,18 @@
+# uploads/.htaccess - Disable all executable scripts in upload directories
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+
+# Prevent direct script execution
+<FilesMatch "(?i)\.(php|phtml|php3|php4|php5|php7|phar|pl|py|cgi|sh|exe|asp|aspx|jsp|shtml|htm|html|js)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Enforce no sniffing
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>

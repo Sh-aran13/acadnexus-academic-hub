@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 180" width="100%" height="180">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" rx="18" fill="url(#headerGrad)" />
+  
+  <!-- Subtle Grid Pattern Lines -->
+  <line x1="0" y1="45" x2="850" y2="45" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <line x1="0" y1="90" x2="850" y2="90" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <line x1="0" y1="135" x2="850" y2="135" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <line x1="170" y1="0" x2="170" y2="180" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <line x1="340" y1="0" x2="340" y2="180" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <line x1="510" y1="0" x2="510" y2="180" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+  <line x1="680" y1="0" x2="680" y2="180" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+
+  <!-- Ambient Glow Circles -->
+  <circle cx="780" cy="30" r="120" fill="#7c3aed" fill-opacity="0.18" filter="url(#softGlow)" />
+  <circle cx="80" cy="150" r="90" fill="#2563eb" fill-opacity="0.15" filter="url(#softGlow)" />
+
+  <!-- AcadNexus Emblem Container -->
+  <g transform="translate(48, 42)">
+    <rect width="96" height="96" rx="22" fill="url(#accentGrad)" filter="url(#softGlow)" opacity="0.35" />
+    <rect width="96" height="96" rx="22" fill="#0b132b" stroke="#3b82f6" stroke-width="1.5" />
+    
+    <!-- Mortarboard Icon -->
+    <path d="M48 24 L80 38 L48 52 L16 38 Z" fill="url(#amberGrad)" />
+    <!-- Cap Lower Ribbon / Book base -->
+    <path d="M26 44 L26 62 C26 71 48 76 48 76 C48 76 70 71 70 62 L70 44" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Tassel -->
+    <path d="M74 41 L74 65 C74 68 71 70 69 70" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Typography & Brand Text -->
+  <g transform="translate(170, 72)">
+    <!-- Primary Title -->
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Plus Jakarta Sans', sans-serif" font-size="42" font-weight="900" fill="#ffffff" letter-spacing="-1.2">Acad<tspan fill="#38bdf8">Nexus</tspan></text>
+    
+    <!-- Subtitle Badge / Pill -->
+    <rect x="236" y="-30" width="168" height="26" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="246" y="-13" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="800" fill="#a5b4fc" letter-spacing="0.8">ENTERPRISE PLATFORM</text>
+
+    <!-- Tagline & Description -->
+    <text x="0" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600" fill="#94a3b8" letter-spacing="0.2">
+      Unified Student–Faculty Academic Hub
+    </text>
+    
+    <text x="0" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#38bdf8" letter-spacing="1.1">
+      CONNECT  •  LEARN  •  COLLABORATE  •  GROW
+    </text>
+  </g>
+
+  <!-- Decorative Live Metric Chips (Right Edge) -->
+  <g transform="translate(685, 48)">
+    <!-- Student Pill -->
+    <g transform="translate(0, 0)">
+      <rect width="125" height="24" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="0.8" />
+      <circle cx="12" cy="12" r="3.5" fill="#38bdf8" />
+      <text x="24" y="16" font-family="sans-serif" font-size="10.5" font-weight="700" fill="#e2e8f0">Student Portal</text>
+    </g>
+    <!-- Faculty Pill -->
+    <g transform="translate(0, 32)">
+      <rect width="125" height="24" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="0.8" />
+      <circle cx="12" cy="12" r="3.5" fill="#a78bfa" />
+      <text x="24" y="16" font-family="sans-serif" font-size="10.5" font-weight="700" fill="#e2e8f0">Faculty Portal</text>
+    </g>
+    <!-- Admin Pill -->
+    <g transform="translate(0, 64)">
+      <rect width="125" height="24" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="0.8" />
+      <circle cx="12" cy="12" r="3.5" fill="#34d399" />
+      <text x="24" y="16" font-family="sans-serif" font-size="10.5" font-weight="700" fill="#e2e8f0">Admin Console</text>
+    </g>
+  </g>
+</svg>

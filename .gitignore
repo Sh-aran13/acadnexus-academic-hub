@@ -1,0 +1,25 @@
+# Environment configuration
+.env
+
+# Backups
+backups/*.sql
+backups/*.gz
+
+# Temporary / Scratch files
+scratch/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Uploaded user files (keep directory structure with .gitkeep)
+uploads/student/*
+uploads/faculty/*
+uploads/announcement/*
+uploads/admin/*
+!uploads/**/.gitkeep
