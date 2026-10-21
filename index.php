@@ -1,11 +1,11 @@
 <?php
-// index.php - AcadNexus Landing Page
+// index.php - AcadNexus Landing Page: Clinical Quartz Theme (Steel Prussian + Frosted Glaze + Teal)
 session_start();
 
 $ticker = [
-    'Assignments', 'Attendance', 'Course materials', 'Announcements',
-    'Faculty appointments', 'Academic progress', 'Project mentorship',
-    'Exams and results', 'Digital student pass'
+    'Assignments & Submissions', 'Biometric & RFID Attendance', 'Course Syllabus & Repositories', 'Official University Circulars',
+    'Faculty Advisory & Office Hours', 'Real-time GPA Tracking', 'Capstone Mentorship',
+    'Automated Exam Transcripts', 'Encrypted Digital Campus Pass'
 ];
 ?>
 <!DOCTYPE html>
@@ -13,48 +13,89 @@ $ticker = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcadNexus – Unified Student–Faculty Academic Hub</title>
-    <meta name="description" content="AcadNexus brings students and faculty together in one academic workspace for assignments, attendance, course materials, announcements, appointments and results.">
-    <meta name="theme-color" content="#0b2623">
+    <title>AcadNexus – Academic Intelligence & Faculty Governance Platform</title>
+    <meta name="description" content="AcadNexus is a clinical-grade unified academic workspace designed for university faculty, researchers, and students. Coursework, grading, advisory, and telemetry in one clinical quartz interface.">
+    <meta name="theme-color" content="#0a192f">
     <script>document.documentElement.classList.add('js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
+        /* ==========================================================================
+           CLINICAL QUARTZ DESIGN SYSTEM
+           Steel Prussian (#0a192f, #132742) + Frosted Glaze + Clinical Teal (#0ea5e9, #14b8a6)
+           ========================================================================== */
         :root {
-            --ink: #0b2623;
-            --ink-2: #123a35;
-            --teal: #0f766e;
-            --teal-2: #14a396;
-            --teal-soft: #dcefe9;
-            --amber: #f4b63f;
-            --amber-soft: #fdf0cf;
-            --coral: #e4572e;
-            --coral-soft: #fde6df;
-            --paper: #f3f6f5;
-            --white: #ffffff;
-            --line: #dbe5e2;
-            --text: #14302c;
-            --muted: #587069;
-            --display: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
-            --body: 'DM Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
-            --radius: 22px;
+            /* Clinical Prussian Spectrum */
+            --prussian-950: #060d19;
+            --prussian-900: #0a192f;
+            --prussian-850: #0f223d;
+            --prussian-800: #132a4a;
+            --prussian-700: #1e3a5f;
+            --prussian-600: #2d4f7c;
+
+            /* Clinical Teal & Cyan Accents */
+            --teal-primary: #0d9488;
+            --teal-bright: #14b8a6;
+            --teal-cyan: #06b6d4;
+            --teal-sky: #0284c7;
+            --teal-glow: rgba(20, 184, 166, 0.28);
+            --teal-subtle: rgba(13, 148, 136, 0.08);
+
+            /* Frosted Glaze & Quartz Surfaces */
+            --quartz-bg: #f8fafc;
+            --quartz-surface: #ffffff;
+            --quartz-frosted: rgba(255, 255, 255, 0.78);
+            --quartz-border: #e2e8f0;
+            --quartz-border-subtle: #edf2f7;
+            --quartz-glass-border: rgba(255, 255, 255, 0.45);
+            --quartz-shadow-sm: 0 4px 12px rgba(10, 25, 47, 0.04);
+            --quartz-shadow-md: 0 12px 32px -6px rgba(10, 25, 47, 0.08);
+            --quartz-shadow-lg: 0 24px 48px -12px rgba(10, 25, 47, 0.14);
+
+            /* Typography & Neutrals */
+            --text-heading: #0a192f;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+
+            /* Clinical Badges */
+            --badge-success-bg: #ecfdf5;
+            --badge-success-text: #059669;
+            --badge-warning-bg: #fefce8;
+            --badge-warning-text: #ca8a04;
+            --badge-critical-bg: #fef2f2;
+            --badge-critical-text: #dc2626;
+
+            /* Fonts & Radii */
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
         }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 86px;
             overflow-x: hidden;
             width: 100%;
             max-width: 100%;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: var(--body);
-            background: var(--paper);
-            color: var(--text);
+            font-family: var(--font-main);
+            background-color: var(--quartz-bg);
+            color: var(--text-body);
             line-height: 1.6;
             overflow-x: hidden;
             width: 100%;
@@ -63,1141 +104,1993 @@ $ticker = [
             -webkit-font-smoothing: antialiased;
         }
 
-        ::selection { background: var(--amber); color: var(--ink); }
-        a { color: inherit; }
-        :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
-
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
-
-        /* ---------- Scroll progress ---------- */
-        .progress {
-            position: fixed; top: 0; left: 0; height: 3px; width: 100%;
-            background: linear-gradient(90deg, var(--teal-2), var(--amber));
-            transform-origin: left; transform: scaleX(0);
-            z-index: 1100;
+        ::selection {
+            background: rgba(20, 184, 166, 0.2);
+            color: var(--prussian-900);
         }
 
-        /* ---------- Reveal on scroll ---------- */
-        .js .reveal { opacity: 0; translate: 0 28px; }
-        .js .reveal.in { opacity: 1; translate: 0 0; }
-        .reveal { transition: opacity 0.7s ease var(--d, 0s), translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s); }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-        /* ---------- Buttons ---------- */
+        :focus-visible {
+            outline: 2px solid var(--teal-primary);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 28px;
+            box-sizing: border-box;
+        }
+
+        /* ---------- Telemetry Scroll Indicator ---------- */
+        .progress-telemetry {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--teal-cyan), var(--teal-bright), #38bdf8);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1200;
+        }
+
+        /* ---------- Scroll Reveal ---------- */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+                        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s);
+        }
+        .js .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------- Buttons & Micro-Actions ---------- */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: 14px 26px;
-            border-radius: 14px;
-            font-family: var(--body);
-            font-size: 15px;
+            gap: 10px;
+            padding: 13px 24px;
+            border-radius: var(--radius-md);
+            font-size: 14.5px;
             font-weight: 700;
-            text-decoration: none;
-            border: 2px solid transparent;
             cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
             position: relative;
             overflow: hidden;
-            transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+            letter-spacing: -0.2px;
         }
-        .btn:hover { transform: translateY(-2px); }
-        .btn svg { transition: transform 0.2s ease; }
-        .btn:hover svg { transform: translateX(3px); }
-        .btn-primary { background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%); color: #fff; box-shadow: 0 12px 26px rgba(11, 38, 35, 0.25); }
-        .btn-primary:hover { box-shadow: 0 16px 32px rgba(11, 38, 35, 0.32); }
-        .btn-primary::after {
-            content: ''; position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
-            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-            transform: skewX(-20deg); transition: left 0.6s ease;
-        }
-        .btn-primary:hover::after { left: 130%; }
-        .btn-ghost { color: var(--ink); border-color: var(--line); background: #fff; }
-        .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
-        .btn-amber { background: linear-gradient(135deg, #ffc552 0%, var(--amber) 100%); color: var(--ink); box-shadow: 0 12px 26px rgba(244, 182, 63, 0.3); }
-        .btn-amber:hover { box-shadow: 0 16px 32px rgba(244, 182, 63, 0.42); }
-        .btn-outline-light { background: rgba(255, 255, 255, 0.04); color: #fff; border-color: rgba(255, 255, 255, 0.35); }
-        .btn-outline-light:hover { border-color: #fff; background: rgba(255, 255, 255, 0.1); }
-        .btn-sm { padding: 10px 20px; font-size: 14px; border-radius: 12px; }
 
-        /* ---------- Navbar ---------- */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-prussian {
+            background: linear-gradient(135deg, var(--prussian-900) 0%, var(--prussian-800) 100%);
+            color: #ffffff;
+            box-shadow: 0 10px 24px -6px rgba(10, 25, 47, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-prussian:hover {
+            background: linear-gradient(135deg, var(--prussian-850) 0%, var(--prussian-700) 100%);
+            box-shadow: 0 14px 28px -6px rgba(10, 25, 47, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .btn-teal {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-bright) 100%);
+            color: #ffffff;
+            box-shadow: 0 10px 22px -5px var(--teal-glow);
+        }
+        .btn-teal:hover {
+            box-shadow: 0 14px 28px -4px rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-glaze {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--prussian-900);
+            border: 1px solid var(--quartz-border);
+            box-shadow: var(--quartz-shadow-sm);
+        }
+        .btn-glaze:hover {
+            background: #ffffff;
+            border-color: var(--teal-primary);
+            color: var(--teal-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--quartz-shadow-md);
+        }
+
+        .btn-outline-prussian {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+        .btn-outline-prussian:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 9px 18px;
+            font-size: 13.5px;
+            border-radius: 10px;
+        }
+
+        /* ---------- Navbar: Frosted Glaze on Prussian Grid ---------- */
         .navbar {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            background: rgba(243, 246, 245, 0.8);
-            backdrop-filter: blur(16px) saturate(1.4);
-            -webkit-backdrop-filter: blur(16px) saturate(1.4);
-            border-bottom: 1px solid transparent;
-            transition: box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            background: rgba(248, 250, 252, 0.82);
+            backdrop-filter: blur(18px) saturate(160%);
+            -webkit-backdrop-filter: blur(18px) saturate(160%);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            transition: all 0.25s ease;
         }
-        .navbar.scrolled { border-bottom-color: var(--line); box-shadow: 0 10px 30px -12px rgba(11, 38, 35, 0.18); background: rgba(243, 246, 245, 0.92); }
-        .nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 
-        .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
-        .brand-mark {
-            width: 40px; height: 40px;
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom-color: var(--quartz-border);
+            box-shadow: 0 10px 30px -10px rgba(10, 25, 47, 0.07);
+        }
+
+        .nav-inner {
+            height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-gem {
+            width: 42px;
+            height: 42px;
             border-radius: 12px;
-            background: linear-gradient(135deg, var(--ink) 0%, var(--teal) 100%);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 8px 18px rgba(15, 118, 110, 0.35);
+            background: linear-gradient(135deg, var(--prussian-900) 0%, var(--prussian-800) 50%, var(--teal-primary) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal-bright);
+            box-shadow: 0 8px 18px -4px rgba(10, 25, 47, 0.3);
+            position: relative;
         }
-        .brand-name { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--ink); letter-spacing: -0.4px; }
 
-        .nav-menu { display: flex; align-items: center; gap: 30px; list-style: none; }
-        .nav-link { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--muted); position: relative; padding: 4px 0; transition: color 0.15s ease; }
-        .nav-link::after { content: ''; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; border-radius: 2px; }
-        .nav-link:hover { color: var(--ink); }
-        .nav-link:hover::after { transform: scaleX(1); }
-        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .brand-name {
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--prussian-900);
+            letter-spacing: -0.6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-badge {
+            font-size: 10.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 6px;
+            background: rgba(13, 148, 136, 0.12);
+            color: var(--teal-primary);
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(13, 148, 136, 0.2);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color 0.18s ease;
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--teal-primary);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.22s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--prussian-900);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
         .hamburger {
             display: none;
-            width: 44px; height: 44px;
-            border-radius: 12px;
-            border: 1px solid var(--line);
-            background: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: 1px solid var(--quartz-border);
+            background: #ffffff;
             cursor: pointer;
-            align-items: center; justify-content: center;
-            color: var(--ink);
+            align-items: center;
+            justify-content: center;
+            color: var(--prussian-900);
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ---------- Hero ---------- */
+        /* ---------- HERO: Clinical Quartz Stage ---------- */
         .hero {
-            padding: 150px 0 140px 0;
+            padding: 140px 0 90px 0;
             position: relative;
-            background-color: var(--paper);
-            background-image: linear-gradient(to bottom, rgba(15, 118, 110, 0.07) 1px, transparent 1px);
-            background-size: 100% 36px;
+            background: linear-gradient(180deg, rgba(241, 245, 249, 0.6) 0%, rgba(248, 250, 252, 1) 100%);
+            overflow: hidden;
         }
-        .hero-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-        .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.75; }
-        .blob-1 { width: 520px; height: 520px; right: -120px; top: -80px; background: radial-gradient(circle, rgba(20, 163, 150, 0.45), transparent 65%); animation: drift 14s ease-in-out infinite alternate; }
-        .blob-2 { width: 460px; height: 460px; left: -140px; bottom: -60px; background: radial-gradient(circle, rgba(244, 182, 63, 0.42), transparent 65%); animation: drift 17s ease-in-out infinite alternate-reverse; }
-        .blob-3 { width: 300px; height: 300px; left: 42%; top: 20%; background: radial-gradient(circle, rgba(228, 87, 46, 0.14), transparent 65%); animation: drift 20s ease-in-out infinite alternate; }
-        @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(40px, 30px) scale(1.12); } }
 
-        .hero::after {
-            content: '';
-            position: absolute; left: 0; right: 0; bottom: 0; height: 140px;
-            background: linear-gradient(to bottom, transparent, var(--paper));
+        /* Precision Steel Grid Background Pattern */
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(13, 148, 136, 0.08) 0%, transparent 60%),
+                linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px);
+            background-size: 100% 100%, 48px 48px, 48px 48px;
             pointer-events: none;
         }
-        .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
 
-        .hero-kicker {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(255, 255, 255, 0.85); border: 1px solid var(--line);
-            padding: 7px 16px 7px 8px; border-radius: 999px;
-            font-size: 14px; font-weight: 500; color: var(--muted);
-            margin-bottom: 26px;
-            box-shadow: 0 6px 18px -8px rgba(11, 38, 35, 0.2);
+        .hero-stage {
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 56px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
         }
-        .hero-kicker b { background: var(--amber); color: var(--ink); font-weight: 700; padding: 3px 10px; border-radius: 999px; font-size: 13px; display: inline-flex; align-items: center; gap: 7px; }
-        .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #12a37f; position: relative; display: inline-block; }
-        .live-dot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #12a37f; opacity: 0; animation: ping 2s ease-out infinite; }
-        @keyframes ping { 0% { transform: scale(0.5); opacity: 0.8; } 100% { transform: scale(1.5); opacity: 0; } }
 
-        .hero-title {
-            font-family: var(--display);
-            font-size: clamp(42px, 5.6vw, 72px);
-            line-height: 1.02;
-            font-weight: 800;
-            letter-spacing: -2px;
-            color: var(--ink);
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 14px 6px 8px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid var(--quartz-border);
+            box-shadow: var(--quartz-shadow-sm);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
             margin-bottom: 22px;
         }
-        .hl {
-            background: linear-gradient(transparent 60%, rgba(244, 182, 63, 0.6) 60% 92%, transparent 92%);
-            background-size: 0% 100%;
-            background-repeat: no-repeat;
-            padding: 0 6px;
-            margin: 0 -6px;
-            -webkit-box-decoration-break: clone; box-decoration-break: clone;
-            animation: hlIn 0.9s 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+
+        .hero-pill-badge {
+            background: var(--prussian-900);
+            color: var(--teal-bright);
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            letter-spacing: -0.2px;
         }
-        @keyframes hlIn { to { background-size: 100% 100%; } }
 
-        .hero-desc { font-size: 19px; color: var(--muted); max-width: 540px; margin-bottom: 34px; line-height: 1.65; }
-        .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
-
-        .hero-checks { display: flex; flex-wrap: wrap; gap: 10px 22px; list-style: none; font-size: 14.5px; color: var(--muted); font-weight: 500; }
-        .hero-checks li { display: flex; align-items: center; gap: 8px; }
-        .hero-checks svg { color: #fff; background: var(--teal); border-radius: 50%; padding: 3px; flex-shrink: 0; }
-
-        /* Hero product preview */
-        .mock { position: relative; padding: 20px 0 70px 0; max-width: 100%; overflow: hidden; }
-        .mock::before {
-            content: ''; position: absolute; inset: 0 0 40px 0; border-radius: 36px;
-            background: linear-gradient(135deg, rgba(20, 163, 150, 0.25), rgba(244, 182, 63, 0.25));
-            filter: blur(30px); z-index: 0;
+        .pulse-indicator {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--teal-bright);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.3);
+            animation: radarPulse 2s infinite;
         }
-        .mock-window {
-            position: relative; z-index: 1;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 24px;
-            box-shadow: 0 40px 70px -24px rgba(11, 38, 35, 0.35);
+        @keyframes radarPulse {
+            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.5); }
+            70% { box-shadow: 0 0 0 8px rgba(20, 184, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
+
+        .hero-title {
+            font-size: clamp(38px, 4.8vw, 62px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -1.8px;
+            color: var(--prussian-900);
+            margin-bottom: 22px;
+        }
+
+        .hero-title .teal-gradient-text {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-bright) 50%, var(--teal-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.65;
+            max-width: 540px;
+            margin-bottom: 34px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .hero-specs {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .hero-specs li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-specs svg {
+            color: var(--teal-primary);
+            flex-shrink: 0;
+        }
+
+        /* ---------- HERO TELEMETRY CONSOLE (Interactive Mock) ---------- */
+        .console-wrap {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .console-glow {
+            position: absolute;
+            inset: -15px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.18) 0%, rgba(10, 25, 47, 0.05) 60%, transparent 80%);
+            filter: blur(28px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .console-window {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--quartz-border);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 28px 64px -16px rgba(10, 25, 47, 0.16);
             overflow: hidden;
-            transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+            transition: transform 0.4s ease;
         }
-        .mock-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 1px solid var(--line); background: linear-gradient(to bottom, #fbfdfc, #fff); }
-        .mock-dots { display: flex; gap: 6px; }
-        .mock-dots i { width: 10px; height: 10px; border-radius: 50%; background: #e3e9e7; display: block; }
-        .mock-dots i:nth-child(1) { background: #f1a28d; }
-        .mock-dots i:nth-child(2) { background: #f4d28a; }
-        .mock-dots i:nth-child(3) { background: #9fd6c8; }
-        .mock-bar strong { font-family: var(--display); font-size: 19px; font-weight: 700; color: var(--ink); margin-right: auto; margin-left: 6px; }
-        .mock-bar span { font-size: 13px; color: var(--muted); }
-        .mock-rows { padding: 8px 22px 16px 22px; }
-        .mock-row { display: grid; grid-template-columns: 62px 1fr auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px dashed var(--line); }
-        .mock-row:last-child { border-bottom: none; }
-        .mock-time { font-size: 13px; font-weight: 700; color: var(--muted); }
-        .mock-class { display: flex; gap: 12px; align-items: center; }
-        .mock-class i { width: 5px; height: 36px; border-radius: 4px; display: block; flex-shrink: 0; }
-        .mock-class b { display: block; font-size: 15px; color: var(--ink); line-height: 1.25; }
-        .mock-class small { font-size: 12.5px; color: var(--muted); }
-        .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; white-space: nowrap; }
-        .pill-teal { background: var(--teal-soft); color: #0a5b55; }
-        .pill-amber { background: var(--amber-soft); color: #8a5d00; }
-        .pill-coral { background: var(--coral-soft); color: #a63a18; }
-        .pill-ink { background: var(--ink); color: #fff; }
 
-        .float-a { animation: floatY 6s ease-in-out infinite; }
-        .float-b { animation: floatY 7.5s ease-in-out -2s infinite; }
-        .float-c { animation: floatY 5.5s ease-in-out -1s infinite; }
-        @keyframes floatY { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
-
-        .mock-att {
-            position: absolute; left: -34px; bottom: 0; z-index: 2;
-            background: linear-gradient(135deg, var(--ink), var(--ink-2)); color: #fff;
-            border-radius: 20px; padding: 16px 20px;
-            display: flex; align-items: center; gap: 16px;
-            box-shadow: 0 24px 44px -12px rgba(11, 38, 35, 0.55);
+        .console-header {
+            padding: 16px 20px;
+            background: linear-gradient(to right, #f8fafc, #ffffff);
+            border-bottom: 1px solid var(--quartz-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .ring-wrap { position: relative; width: 70px; height: 70px; }
-        .ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-        .ring-wrap .track { stroke: rgba(255, 255, 255, 0.15); }
-        .ring-wrap .bar { stroke: var(--amber); stroke-linecap: round; }
-        .ring-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 18px; font-weight: 700; }
-        .mock-att b { display: block; font-size: 15px; }
-        .mock-att small { color: #a9c4be; font-size: 12.5px; }
 
-        .mock-due {
-            position: absolute; right: -18px; bottom: 22px; z-index: 2;
-            background: #fff; border: 1px solid var(--line);
-            border-radius: 18px; padding: 14px 18px; max-width: 250px;
-            box-shadow: 0 24px 44px -14px rgba(11, 38, 35, 0.35);
+        .console-dots {
+            display: flex;
+            gap: 6px;
         }
-        .mock-due small { font-size: 12px; color: var(--coral); font-weight: 700; display: block; margin-bottom: 2px; }
-        .mock-due b { font-size: 14.5px; color: var(--ink); line-height: 1.3; display: block; margin-bottom: 10px; }
-
-        .mock-grade {
-            position: absolute; right: 26px; top: -14px; z-index: 2;
-            background: var(--amber); color: var(--ink);
-            border-radius: 14px; padding: 9px 14px;
-            display: flex; align-items: center; gap: 9px;
-            font-size: 13px; font-weight: 700;
-            box-shadow: 0 16px 30px -10px rgba(244, 182, 63, 0.7);
+        .console-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            display: block;
         }
-        .mock-grade span { background: var(--ink); color: var(--amber); border-radius: 8px; padding: 2px 8px; font-family: var(--display); font-size: 15px; }
-        .mock-caption { position: absolute; right: 4px; bottom: -4px; font-size: 11.5px; color: var(--muted); }
+        .console-dots span:nth-child(1) { background: #f87171; }
+        .console-dots span:nth-child(2) { background: #fbbf24; }
+        .console-dots span:nth-child(3) { background: #34d399; }
 
-        .ring-anim { animation: ringIn 1.4s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-        @keyframes ringIn { from { stroke-dashoffset: 213.6; } }
+        .console-title {
+            font-size: 13px;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--prussian-900);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-        /* ---------- Perks band ---------- */
-        .perks { margin-top: -70px; position: relative; z-index: 5; }
-        .perks-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-        .perk {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--line);
-            border-radius: 20px;
+        .console-badge-live {
+            background: #ecfdf5;
+            color: #059669;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            border: 1px solid #a7f3d0;
+        }
+
+        .console-body {
             padding: 22px;
-            display: flex; align-items: center; gap: 16px;
-            box-shadow: 0 20px 40px -22px rgba(11, 38, 35, 0.35);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
-        .perk:hover { transform: translateY(-5px); border-color: var(--teal); box-shadow: 0 26px 46px -20px rgba(15, 118, 110, 0.4); }
-        .perk-ico {
-            width: 52px; height: 52px; border-radius: 16px; flex-shrink: 0;
-            background: linear-gradient(135deg, var(--ink), var(--teal));
-            color: var(--amber);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px -8px rgba(15, 118, 110, 0.6);
+
+        /* Metric Glance Cards Inside Console */
+        .console-glance-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
         }
-        .perk b { display: block; font-family: var(--display); font-size: 17px; color: var(--ink); line-height: 1.2; margin-bottom: 2px; }
-        .perk small { font-size: 13.5px; color: var(--muted); line-height: 1.4; display: block; }
 
-        /* ---------- Marquee ---------- */
-        .marquee { margin-top: 70px; background: var(--ink); padding: 18px 0; overflow: hidden; position: relative; border-top: 3px solid var(--amber); }
-        .marquee::before, .marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 1; pointer-events: none; }
-        .marquee::before { left: 0; background: linear-gradient(to right, var(--ink), transparent); }
-        .marquee::after { right: 0; background: linear-gradient(to left, var(--ink), transparent); }
-        .marquee-track { display: flex; width: max-content; animation: scrollX 38s linear infinite; }
-        .marquee:hover .marquee-track { animation-play-state: paused; }
-        .marquee-item { display: flex; align-items: center; gap: 22px; padding-right: 22px; font-family: var(--display); font-size: 22px; font-weight: 600; color: #e3efec; white-space: nowrap; }
-        .marquee-item svg { color: var(--amber); flex-shrink: 0; }
-        @keyframes scrollX { to { transform: translateX(-50%); } }
+        .c-stat-box {
+            background: #f8fafc;
+            border: 1px solid var(--quartz-border);
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+        }
+        .c-stat-lbl {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 4px;
+        }
+        .c-stat-val {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--prussian-900);
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+        .c-stat-val small {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--teal-primary);
+        }
 
-        /* ---------- Section scaffolding ---------- */
-        .section { padding: 100px 0; }
-        .section-head { max-width: 720px; margin-bottom: 52px; }
-        .section-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: var(--teal-soft); color: #0a5b55; font-size: 13.5px; font-weight: 600; margin-bottom: 18px; }
-        .section-pill svg { color: var(--teal); }
-        .section-title { font-family: var(--display); font-size: clamp(32px, 4vw, 48px); line-height: 1.08; font-weight: 700; letter-spacing: -1.2px; color: var(--ink); margin-bottom: 14px; }
-        .section-sub { font-size: 18px; color: var(--muted); max-width: 600px; }
+        /* Course Stream Rows */
+        .c-stream-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-        /* ---------- Bento features ---------- */
-        .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
-        .tile {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
+        .c-stream-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            background: #ffffff;
+            border: 1px solid var(--quartz-border);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+        .c-stream-item:hover {
+            border-color: var(--teal-primary);
+            box-shadow: 0 4px 14px rgba(10, 25, 47, 0.05);
+            transform: translateX(2px);
+        }
+
+        .c-stream-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .c-stream-ico {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: var(--teal-subtle);
+            color: var(--teal-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .c-stream-text strong {
+            display: block;
+            font-size: 13.5px;
+            color: var(--prussian-900);
+            font-weight: 700;
+        }
+        .c-stream-text span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .c-status-chip {
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+        .chip-teal { background: #ccfbf1; color: #0f766e; }
+        .chip-sky { background: #e0f2fe; color: #0369a1; }
+        .chip-amber { background: #fef3c7; color: #b45309; }
+
+        /* Floating Overlays on Desktop */
+        .float-quartz-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--quartz-border);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            box-shadow: var(--quartz-shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 3;
+        }
+
+        .fq-att {
+            margin-top: 14px;
+            background: linear-gradient(135deg, var(--prussian-900) 0%, var(--prussian-800) 100%);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        .fq-att-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(20, 184, 166, 0.18);
+            border: 2px solid var(--teal-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 800;
+            font-size: 13px;
+            color: var(--teal-bright);
+        }
+
+        /* ---------- RUNNING TELEMETRY TICKER ---------- */
+        .ticker-strip {
+            background: var(--prussian-900);
+            padding: 14px 0;
+            overflow: hidden;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .ticker-strip::before, .ticker-strip::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-strip::before { left: 0; background: linear-gradient(to right, var(--prussian-900), transparent); }
+        .ticker-strip::after { right: 0; background: linear-gradient(to left, var(--prussian-900), transparent); }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: tickerScroll 34s linear infinite;
+        }
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes tickerScroll {
+            to { transform: translateX(-50%); }
+        }
+
+        .ticker-unit {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-right: 32px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        .ticker-unit svg {
+            color: var(--teal-bright);
+            flex-shrink: 0;
+        }
+
+        /* ---------- SECTION HEADINGS ---------- */
+        .section {
+            padding: 96px 0;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 680px;
+            margin-bottom: 48px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--teal-subtle);
+            color: var(--teal-primary);
+            font-size: 12.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            margin-bottom: 14px;
+        }
+
+        .section-heading {
+            font-size: clamp(30px, 3.6vw, 44px);
+            font-weight: 800;
+            line-height: 1.14;
+            letter-spacing: -1.2px;
+            color: var(--prussian-900);
+            margin-bottom: 14px;
+        }
+
+        .section-subtext {
+            font-size: 17px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ---------- BENTO SUITE: Clinical Quartz Tiles ---------- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .q-tile {
+            background: #ffffff;
+            border: 1px solid var(--quartz-border);
+            border-radius: var(--radius-xl);
             padding: 28px;
-            display: flex; flex-direction: column;
-            position: relative; overflow: hidden;
-            transition: opacity 0.7s ease var(--d, 0s), translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s), transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--quartz-shadow-sm);
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .tile::before {
-            content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
-            background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(20, 163, 150, 0.14), transparent 45%);
+
+        .q-tile::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(20, 184, 166, 0.08), transparent 50%);
+            opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
         }
-        .tile:hover::before { opacity: 1; }
-        .tile:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 28px 50px -26px rgba(15, 118, 110, 0.45); }
-        .tile > * { position: relative; z-index: 1; }
-        .tile h3 { font-family: var(--display); font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.3px; margin-bottom: 8px; }
-        .tile p { font-size: 15px; color: var(--muted); line-height: 1.6; }
-        .tile-visual { margin-top: auto; padding-top: 22px; }
-        .tile-ico {
-            width: 46px; height: 46px; border-radius: 14px; margin-bottom: 18px;
-            background: var(--teal-soft); color: var(--teal);
-            display: flex; align-items: center; justify-content: center;
+        .q-tile:hover::before { opacity: 1; }
+
+        .q-tile:hover {
+            border-color: rgba(20, 184, 166, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(10, 25, 47, 0.1);
         }
 
-        .t-assign { grid-column: span 3; grid-row: span 2; }
-        .t-attend { grid-column: span 3; flex-direction: row; align-items: center; gap: 24px; }
-        .t-announce { grid-column: span 3; }
-        .t-materials, .t-appoint, .t-progress { grid-column: span 2; }
-        .t-projects, .t-results, .t-pass { grid-column: span 2; }
-
-        .t-dark { background: linear-gradient(145deg, var(--ink) 0%, var(--ink-2) 100%); border-color: var(--ink); }
-        .t-dark::before { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(244, 182, 63, 0.16), transparent 45%); }
-        .t-dark h3 { color: #fff; }
-        .t-dark p { color: #a9c4be; }
-        .t-dark:hover { border-color: var(--amber); }
-        .t-dark .tile-ico { background: rgba(244, 182, 63, 0.15); color: var(--amber); }
-        .t-tint { background: linear-gradient(145deg, var(--teal-soft), #eaf6f2); border-color: #bfe0d7; }
-        .t-tint .tile-ico { background: #fff; }
-
-        .list-ui { display: flex; flex-direction: column; gap: 10px; }
-        .list-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 16px; background: var(--paper); border-radius: 14px; border: 1px solid transparent; transition: border-color 0.2s ease, background 0.2s ease; }
-        .list-item:hover { background: #fff; border-color: var(--line); }
-        .list-item b { font-size: 14.5px; color: var(--ink); display: block; line-height: 1.3; }
-        .list-item small { font-size: 12.5px; color: var(--muted); }
-
-        .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
-        .chip { font-size: 13px; font-weight: 600; padding: 7px 13px; border-radius: 10px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
-        .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: 0 8px 16px -6px rgba(11, 38, 35, 0.5); }
-        .chip.file { display: inline-flex; gap: 8px; align-items: center; }
-        .chip.file em { font-style: normal; font-size: 11px; font-weight: 800; padding: 2px 6px; border-radius: 5px; color: #fff; }
-
-        .bars { display: flex; align-items: flex-end; gap: 10px; height: 90px; }
-        .bars span { flex: 1; background: linear-gradient(to top, var(--teal), var(--teal-2)); border-radius: 8px 8px 3px 3px; opacity: 0.35; display: block; transform-origin: bottom; }
-        .bars span:last-child { opacity: 1; }
-        .js .bars span { transform: scaleY(0); transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
-        .js .reveal.in .bars span { transform: scaleY(1); }
-        .js .reveal.in .bars span:nth-child(2) { transition-delay: 0.08s; }
-        .js .reveal.in .bars span:nth-child(3) { transition-delay: 0.16s; }
-        .js .reveal.in .bars span:nth-child(4) { transition-delay: 0.24s; }
-        .js .reveal.in .bars span:nth-child(5) { transition-delay: 0.32s; }
-        .bars-labels { display: flex; gap: 10px; margin-top: 8px; font-size: 12px; color: var(--muted); }
-        .bars-labels span { flex: 1; text-align: center; }
-
-        .rail { height: 8px; background: rgba(15, 118, 110, 0.18); border-radius: 99px; overflow: hidden; margin: 8px 0 14px 0; }
-        .rail i { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), var(--teal-2)); border-radius: 99px; }
-        .js .rail i { width: 0 !important; transition: width 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s; }
-        .js .reveal.in .rail i { width: var(--w) !important; }
-        .mini-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        .mini-table td { padding: 9px 0; border-bottom: 1px solid var(--line); color: var(--text); }
-        .mini-table tr:last-child td { border-bottom: none; }
-        .mini-table td:last-child { text-align: right; font-weight: 700; color: var(--teal); }
-
-        .qr-mini { width: 76px; height: 76px; background: #fff; border-radius: 12px; padding: 7px; box-shadow: 0 0 0 4px rgba(244, 182, 63, 0.25); }
-
-        /* ---------- Workflow ---------- */
-        .how { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
-        .how::before { content: ''; position: absolute; right: -160px; top: -160px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(244, 182, 63, 0.2), transparent 65%); pointer-events: none; }
-        .how-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 70px; align-items: start; position: relative; }
-        .steps { position: relative; display: flex; flex-direction: column; gap: 38px; padding-left: 4px; }
-        .steps::before { content: ''; position: absolute; left: 25px; top: 20px; bottom: 20px; width: 3px; border-radius: 3px; background: linear-gradient(to bottom, var(--amber), var(--teal-2), var(--line)); }
-        .step { display: grid; grid-template-columns: 52px 1fr; gap: 24px; position: relative; padding: 18px 22px 18px 0; border-radius: 18px; transition: background 0.25s ease; }
-        .step:hover { background: var(--paper); }
-        .step-num {
-            width: 52px; height: 52px; border-radius: 50%;
-            background: var(--ink); color: var(--amber);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--display); font-size: 20px; font-weight: 700;
-            border: 5px solid #fff; position: relative; z-index: 1;
-            box-shadow: 0 0 0 5px rgba(244, 182, 63, 0.22);
+        .q-tile-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--teal-subtle);
+            color: var(--teal-primary);
+            border: 1px solid rgba(13, 148, 136, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-        .step h3 { font-family: var(--display); font-size: 23px; font-weight: 700; color: var(--ink); margin: 6px 0 6px 0; letter-spacing: -0.4px; }
-        .step p { font-size: 16px; color: var(--muted); max-width: 520px; }
 
-        /* ---------- Roles ---------- */
-        .tabs { display: inline-flex; padding: 5px; background: #fff; border: 1px solid var(--line); border-radius: 16px; gap: 4px; margin-bottom: 28px; box-shadow: 0 10px 24px -14px rgba(11, 38, 35, 0.3); }
-        .tab { font-family: var(--body); font-size: 15px; font-weight: 700; padding: 11px 26px; border-radius: 12px; border: none; background: transparent; color: var(--muted); cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
-        .tab:hover { color: var(--ink); }
-        .tab[aria-selected="true"] { background: var(--ink); color: #fff; }
-
-        .role-panel {
-            display: none; grid-template-columns: 1fr 1fr; gap: 0; color: #fff; border-radius: 30px; overflow: hidden;
-            background:
-                radial-gradient(620px circle at 100% 0%, rgba(20, 163, 150, 0.32), transparent 60%),
-                radial-gradient(520px circle at 0% 100%, rgba(244, 182, 63, 0.16), transparent 60%),
-                var(--ink);
-            box-shadow: 0 40px 70px -34px rgba(11, 38, 35, 0.6);
+        .q-tile h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--prussian-900);
+            letter-spacing: -0.4px;
+            margin-bottom: 8px;
         }
-        .role-panel.active { display: grid; animation: panelIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
-        @keyframes panelIn { from { opacity: 0; transform: translateY(14px); } }
-        .role-copy { padding: 52px; }
-        .role-copy h3 { font-family: var(--display); font-size: 36px; line-height: 1.1; font-weight: 700; letter-spacing: -0.8px; margin-bottom: 14px; }
-        .role-copy > p { color: #a9c4be; font-size: 17px; margin-bottom: 26px; max-width: 460px; }
-        .role-list { list-style: none; display: grid; gap: 13px; margin-bottom: 34px; }
-        .role-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; color: #e3efec; }
-        .role-list svg { color: var(--ink); background: var(--amber); border-radius: 50%; padding: 3px; flex-shrink: 0; margin-top: 2px; }
-        .role-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-        .role-visual { background: rgba(255, 255, 255, 0.03); padding: 44px; display: flex; flex-direction: column; justify-content: center; gap: 14px; border-left: 1px solid rgba(255, 255, 255, 0.08); }
-        .rv-card { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 16px; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; transition: transform 0.25s ease, background 0.25s ease; }
-        .rv-card:hover { transform: translateX(6px); background: rgba(255, 255, 255, 0.12); }
-        .rv-card b { display: block; font-size: 15px; color: #fff; }
-        .rv-card small { color: #a9c4be; font-size: 13px; }
 
-        /* ---------- CTA ---------- */
-        .cta { padding: 20px 0 100px 0; }
-        .cta-box {
-            border-radius: 34px;
-            padding: 76px 56px;
-            position: relative; overflow: hidden;
-            color: #fff;
-            background:
-                radial-gradient(rgba(255, 255, 255, 0.14) 1.5px, transparent 1.5px) 0 0 / 26px 26px,
-                linear-gradient(135deg, var(--teal) 0%, #0b5f59 55%, var(--ink-2) 100%);
-            display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; align-items: center;
-            box-shadow: 0 40px 70px -34px rgba(15, 118, 110, 0.7);
+        .q-tile p {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
-        .cta-box::before { content: ''; position: absolute; right: -90px; top: -90px; width: 340px; height: 340px; border-radius: 50%; border: 50px solid rgba(255, 255, 255, 0.07); animation: spinSlow 40s linear infinite; }
-        .cta-box::after { content: ''; position: absolute; left: -70px; bottom: -110px; width: 280px; height: 280px; border-radius: 50%; border: 36px solid rgba(244, 182, 63, 0.16); }
-        @keyframes spinSlow { to { transform: rotate(360deg); } }
-        .cta-box h2 { font-family: var(--display); font-size: clamp(32px, 4vw, 50px); line-height: 1.05; font-weight: 800; letter-spacing: -1.4px; margin-bottom: 14px; position: relative; z-index: 1; }
-        .cta-box p { font-size: 18px; color: #d3efe9; max-width: 520px; position: relative; z-index: 1; }
-        .cta-actions { display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
 
-        /* ---------- Footer ---------- */
-        .footer { background: var(--ink); color: #a9c4be; padding: 70px 0 30px 0; position: relative; overflow: hidden; }
-        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal-2), var(--amber), var(--coral)); }
-        .footer-mark { position: absolute; left: 50%; bottom: -0.2em; transform: translateX(-50%); font-family: var(--display); font-weight: 800; font-size: clamp(90px, 18vw, 260px); letter-spacing: -6px; color: rgba(255, 255, 255, 0.035); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1; }
-        .footer .container { position: relative; z-index: 1; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-        .footer-brand .brand-name { color: #fff; }
-        .footer-brand p { margin-top: 16px; font-size: 15px; max-width: 320px; }
-        .footer h4 { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-        .footer ul { list-style: none; display: grid; gap: 11px; }
-        .footer ul a { text-decoration: none; font-size: 14.5px; transition: color 0.15s ease, padding-left 0.2s ease; }
-        .footer ul a:hover { color: var(--amber); padding-left: 4px; }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .q-tile-visual {
+            margin-top: auto;
+            padding-top: 22px;
+        }
 
-        /* ---------- Back to top ---------- */
+        /* Tile Spans */
+        .tile-span-3 { grid-column: span 3; }
+        .tile-span-2 { grid-column: span 2; }
+
+        /* Dark Steel Tile Accent */
+        .q-tile-prussian {
+            background: linear-gradient(145deg, var(--prussian-900) 0%, var(--prussian-850) 100%);
+            border-color: var(--prussian-800);
+            color: #ffffff;
+            box-shadow: 0 16px 36px -10px rgba(10, 25, 47, 0.35);
+        }
+        .q-tile-prussian h3 { color: #ffffff; }
+        .q-tile-prussian p { color: #94a3b8; }
+        .q-tile-prussian .q-tile-icon {
+            background: rgba(20, 184, 166, 0.15);
+            border-color: rgba(20, 184, 166, 0.3);
+            color: var(--teal-bright);
+        }
+
+        /* Micro UI Inside Tiles */
+        .q-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .q-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border-radius: 10px;
+            font-size: 13px;
+            border: 1px solid var(--quartz-border-subtle);
+        }
+        .q-list-item b {
+            color: var(--prussian-900);
+            font-weight: 700;
+        }
+
+        /* Telemetry Bars */
+        .tele-chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            height: 80px;
+            padding-top: 10px;
+        }
+        .tele-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--teal-primary), var(--teal-cyan));
+            border-radius: 6px 6px 2px 2px;
+            opacity: 0.35;
+            display: block;
+            transform-origin: bottom;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .tele-bar:last-child {
+            opacity: 1;
+        }
+        .tele-bar:hover {
+            opacity: 0.9;
+        }
+
+        /* ---------- UNIVERSITY ARCHITECTURE / HOW IT WORKS ---------- */
+        .section-workflow {
+            background: #ffffff;
+            border-top: 1px solid var(--quartz-border);
+            border-bottom: 1px solid var(--quartz-border);
+        }
+
+        .wf-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .wf-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            position: relative;
+        }
+        .wf-steps::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--teal-primary), var(--prussian-700), var(--quartz-border));
+        }
+
+        .wf-step {
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 20px;
+            position: relative;
+            padding: 14px 18px 14px 0;
+            border-radius: var(--radius-md);
+            transition: background 0.2s ease;
+        }
+        .wf-step:hover {
+            background: #f8fafc;
+        }
+
+        .wf-step-idx {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--prussian-900);
+            color: var(--teal-bright);
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 0 3px rgba(10, 25, 47, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .wf-step h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--prussian-900);
+            margin-bottom: 6px;
+        }
+        .wf-step p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ---------- DUAL ROLE HUBS: Student & Faculty Tabs ---------- */
+        .role-switch-nav {
+            display: inline-flex;
+            background: #ffffff;
+            border: 1px solid var(--quartz-border);
+            border-radius: 14px;
+            padding: 5px;
+            gap: 6px;
+            margin-bottom: 28px;
+            box-shadow: var(--quartz-shadow-sm);
+        }
+
+        .role-tab-btn {
+            font-family: var(--font-main);
+            font-size: 14.5px;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .role-tab-btn:hover {
+            color: var(--prussian-900);
+        }
+        .role-tab-btn[aria-selected="true"] {
+            background: var(--prussian-900);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(10, 25, 47, 0.2);
+        }
+
+        .workspace-panel {
+            display: none;
+            grid-template-columns: 1.15fr 0.85fr;
+            background: linear-gradient(135deg, var(--prussian-950) 0%, var(--prussian-900) 60%, var(--prussian-850) 100%);
+            border-radius: var(--radius-xl);
+            color: #ffffff;
+            overflow: hidden;
+            box-shadow: 0 28px 64px -16px rgba(10, 25, 47, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .workspace-panel.active {
+            display: grid;
+            animation: panelFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes panelFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ws-body {
+            padding: 48px;
+        }
+        .ws-body h3 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .ws-body > p {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+
+        .ws-checklist {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+            margin-bottom: 34px;
+        }
+        .ws-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #e2e8f0;
+        }
+        .ws-checklist svg {
+            color: var(--teal-bright);
+            flex-shrink: 0;
+        }
+
+        .ws-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .ws-aside {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .ws-tele-pill {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+        .ws-tele-pill:hover {
+            transform: translateX(4px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(20, 184, 166, 0.4);
+        }
+        .ws-tele-pill strong {
+            display: block;
+            font-size: 14.5px;
+            color: #ffffff;
+        }
+        .ws-tele-pill small {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        /* ---------- CLINICAL QUARTZ CTA ---------- */
+        .cta-section {
+            padding: 20px 0 96px 0;
+        }
+
+        .cta-quartz-box {
+            background: linear-gradient(135deg, var(--prussian-900) 0%, var(--prussian-850) 60%, var(--teal-primary) 100%);
+            border-radius: var(--radius-xl);
+            padding: 64px 56px;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 32px 72px -16px rgba(10, 25, 47, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .cta-quartz-box::before {
+            content: '';
+            position: absolute;
+            right: -80px;
+            top: -80px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-quartz-box h2 {
+            font-size: clamp(30px, 3.8vw, 46px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.2px;
+            margin-bottom: 14px;
+        }
+
+        .cta-quartz-box p {
+            font-size: 17px;
+            color: #cbd5e1;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .cta-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ---------- UNIVERSITY FOOTER ---------- */
+        .footer {
+            background: var(--prussian-950);
+            color: #94a3b8;
+            padding: 72px 0 28px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand-col p {
+            margin-top: 16px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            max-width: 320px;
+            color: #64748b;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: grid;
+            gap: 11px;
+        }
+
+        .footer-col ul a {
+            font-size: 14px;
+            color: #94a3b8;
+            transition: all 0.18s ease;
+        }
+        .footer-col ul a:hover {
+            color: var(--teal-bright);
+            padding-left: 3px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding-top: 24px;
+            font-size: 13.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: #64748b;
+        }
+
+        /* Back to top floating button */
         .to-top {
-            position: fixed; right: 22px; bottom: 22px; z-index: 900;
-            width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
-            background: var(--ink); color: var(--amber);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 14px 28px -8px rgba(11, 38, 35, 0.5);
-            opacity: 0; pointer-events: none; transform: translateY(12px);
-            transition: opacity 0.25s ease, transform 0.25s ease;
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 900;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--quartz-border);
+            cursor: pointer;
+            background: #ffffff;
+            color: var(--prussian-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--quartz-shadow-md);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
         }
-        .to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
-        .to-top:hover { background: var(--teal); }
-
-        /* ---------- Responsive ---------- */
-        @media (min-width: 1041px) {
-            .mock-window { transform: perspective(1400px) rotateY(-6deg) rotateX(2deg); }
-            .mock:hover .mock-window { transform: none; }
+        .to-top.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .to-top:hover {
+            background: var(--teal-primary);
+            color: #ffffff;
+            border-color: var(--teal-primary);
         }
 
+        /* ==========================================================================
+           ANDROID & MOBILE SCREEN ADAPTATIONS (Zero Horizontal Drag)
+           ========================================================================== */
         @media (max-width: 1040px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-            .mock { max-width: 100%; margin: 0 auto; }
-            .perks-grid { grid-template-columns: repeat(2, 1fr); }
-            .bento { grid-template-columns: repeat(2, 1fr); }
-            .t-assign, .t-attend, .t-announce, .t-materials, .t-appoint, .t-progress, .t-projects, .t-results, .t-pass { grid-column: span 1; grid-row: auto; }
-            .t-assign { grid-column: span 2; }
-            .t-attend { flex-direction: column; align-items: flex-start; }
-            .how-grid { grid-template-columns: 1fr; gap: 40px; }
-            .role-panel.active { grid-template-columns: 1fr; }
-            .role-visual { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.08); }
-            .cta-box { grid-template-columns: 1fr; padding: 48px 28px; }
-            .cta-actions { flex-direction: row; flex-wrap: wrap; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-stage { grid-template-columns: 1fr; gap: 42px; }
+            .console-wrap { max-width: 100%; margin: 0 auto; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .tile-span-3, .tile-span-2 { grid-column: span 1; }
+            .wf-grid { grid-template-columns: 1fr; gap: 40px; }
+            .workspace-panel.active { grid-template-columns: 1fr; }
+            .ws-aside { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+            .cta-quartz-box { grid-template-columns: 1fr; padding: 48px 32px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
         }
 
         @media (max-width: 820px) {
             .hamburger {
                 display: inline-flex;
-                -webkit-tap-highlight-color: transparent;
             }
-            .nav-actions .btn-login { display: none; }
+            .nav-actions .btn-glaze {
+                display: none;
+            }
             .nav-menu {
                 display: none;
                 position: fixed;
-                top: 72px; left: 0; right: 0; bottom: 0;
-                flex-direction: column; align-items: stretch; gap: 8px;
-                padding: 24px 20px;
-                background: rgba(243, 246, 245, 0.98);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border-top: 1px solid var(--line);
+                top: 74px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border-top: 1px solid var(--quartz-border);
                 overflow-y: auto;
                 z-index: 999;
-                box-shadow: 0 30px 50px rgba(11, 38, 35, 0.15);
+                box-shadow: var(--quartz-shadow-lg);
             }
-            .nav-menu.open { display: flex; animation: navSlideDown 0.25s ease forwards; }
-            @keyframes navSlideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-            .nav-menu li { width: 100%; list-style: none; }
+            .nav-menu.open {
+                display: flex;
+                animation: mobileDrawerIn 0.25s ease forwards;
+            }
+            @keyframes mobileDrawerIn {
+                from { opacity: 0; transform: translateY(-8px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .nav-menu li {
+                width: 100%;
+                list-style: none;
+            }
             .nav-link {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 14px 18px;
-                font-size: 16px;
+                padding: 13px 16px;
+                font-size: 15.5px;
                 font-weight: 700;
-                color: var(--ink);
-                border-radius: 14px;
-                background: #ffffff;
-                border: 1px solid var(--line);
-                text-decoration: none;
-                transition: all 0.2s ease;
+                color: var(--prussian-900);
+                border-radius: var(--radius-md);
+                background: #f8fafc;
+                border: 1px solid var(--quartz-border);
             }
             .nav-link:hover, .nav-link:active {
-                background: var(--teal-soft);
-                color: var(--teal);
-                border-color: var(--teal-2);
+                background: var(--teal-subtle);
+                color: var(--teal-primary);
+                border-color: rgba(13, 148, 136, 0.3);
             }
             .nav-link::after { display: none; }
         }
 
         @media (max-width: 640px) {
             .container { padding: 0 16px; }
-            .section { padding: 56px 0; }
-            .hero { padding: 95px 0 60px 0; }
+            .section { padding: 60px 0; }
+            .hero { padding: 100px 0 50px 0; }
             .hero-title {
                 font-size: 32px;
-                letter-spacing: -1px;
+                letter-spacing: -1.2px;
                 line-height: 1.15;
             }
             .hero-desc {
-                font-size: 15px;
+                font-size: 15.5px;
                 margin-bottom: 24px;
             }
-            .hero-kicker {
-                font-size: 12px;
-                padding: 5px 12px 5px 6px;
-                max-width: 100%;
-                flex-wrap: wrap;
-                margin-bottom: 18px;
-            }
-            .hero-buttons {
+            .hero-actions {
                 flex-direction: column;
                 width: 100%;
                 gap: 10px;
-                margin-bottom: 24px;
             }
-            .hero-buttons .btn {
+            .hero-actions .btn {
                 width: 100%;
-                padding: 13px 20px;
-                font-size: 14.5px;
                 justify-content: center;
             }
-            .nav-actions .btn-sm {
-                padding: 9px 14px;
-                font-size: 13px;
-                border-radius: 10px;
-            }
-            .hero-checks {
+            .hero-specs {
                 flex-direction: column;
+                align-items: flex-start;
                 gap: 10px;
-                font-size: 13px;
             }
-            .perks { margin-top: 20px; }
-            .perks-grid { grid-template-columns: 1fr; gap: 14px; }
-            .bento { grid-template-columns: 1fr; gap: 14px; }
-            .t-assign { grid-column: span 1; }
-            .t-appoint { flex-direction: column; align-items: flex-start; }
-            .role-copy, .role-visual { padding: 24px 18px; }
-            .mock { padding: 10px 0 0 0; }
-            .mock-window { border-radius: 18px; }
-            .mock-bar { padding: 12px 14px; }
-            .mock-rows { padding: 4px 14px 12px 14px; }
-            .mock-row { grid-template-columns: 50px 1fr auto; gap: 10px; padding: 10px 0; }
-            .mock-class b { font-size: 13.5px; }
-            .mock-att {
-                position: static;
-                margin-top: 14px;
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .q-tile {
+                padding: 22px 18px;
+                border-radius: var(--radius-lg);
+            }
+            .ws-body, .ws-aside {
+                padding: 28px 18px;
+            }
+            .ws-body h3 {
+                font-size: 24px;
+            }
+            .ws-actions {
+                flex-direction: column;
                 width: 100%;
-                border-radius: 16px;
-                padding: 14px 16px;
-                box-shadow: 0 10px 25px rgba(11, 38, 35, 0.25);
             }
-            .mock-due {
-                position: static;
-                margin-top: 12px;
+            .ws-actions .btn {
                 width: 100%;
-                max-width: none;
-                border-radius: 16px;
-                padding: 14px 16px;
-                box-shadow: 0 10px 25px rgba(11, 38, 35, 0.15);
+                justify-content: center;
             }
-            .mock-grade {
-                position: static;
-                display: inline-flex;
-                margin-bottom: 12px;
-                box-shadow: none;
+            .cta-quartz-box {
+                padding: 36px 20px;
+                border-radius: var(--radius-lg);
             }
-            .mock-caption { display: block; text-align: center; margin-top: 10px; }
-            .marquee-item { font-size: 16px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-            .cta-box { padding: 36px 18px; border-radius: 20px; }
-            .cta-actions { flex-direction: column; width: 100%; }
-            .cta-actions .btn { width: 100%; justify-content: center; }
-            .tabs-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; padding-bottom: 4px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after { animation-duration: 0.001s !important; animation-iteration-count: 1 !important; transition-duration: 0.001s !important; }
-            .marquee-track { animation: none; }
-            .js .reveal { opacity: 1; translate: 0 0; }
-            .hl { background-size: 100% 100%; }
+            .cta-btn-group {
+                width: 100%;
+            }
+            .cta-btn-group .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="progress" id="progress"></div>
+    <!-- Scroll Progress Indicator -->
+    <div class="progress-telemetry" id="progress"></div>
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- ================= NAVBAR: Clinical Quartz ================= -->
     <header class="navbar" id="navbar">
         <div class="container nav-inner">
-            <a href="index.php" class="brand" aria-label="AcadNexus home">
-                <span class="brand-mark">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f4b63f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.42a12.08 12.08 0 01.67 6.48A11.95 11.95 0 0112 20.05a11.95 11.95 0 01-6.82-3 12.08 12.08 0 01.66-6.48L12 14z"/></svg>
+            <a href="index.php" class="brand" aria-label="AcadNexus Home">
+                <span class="brand-gem">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                        <path d="M12 14l6.16-3.42a12.08 12.08 0 01.67 6.48A11.95 11.95 0 0112 20.05a11.95 11.95 0 01-6.82-3 12.08 12.08 0 01.66-6.48L12 14z"/>
+                    </svg>
                 </span>
-                <span class="brand-name">AcadNexus</span>
+                <span class="brand-name">
+                    AcadNexus
+                    <span class="brand-badge">Clinical</span>
+                </span>
             </a>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#how-it-works" class="nav-link">How it works</a></li>
-                <li><a href="#roles" class="nav-link">Students and faculty</a></li>
-                <li><a href="login.php" class="nav-link">Log in</a></li>
+                <li><a href="#features" class="nav-link">Governance Suite</a></li>
+                <li><a href="#how-it-works" class="nav-link">Architecture</a></li>
+                <li><a href="#roles" class="nav-link">Faculty & Students</a></li>
+                <li><a href="login.php" class="nav-link">Secure Portal</a></li>
             </ul>
 
             <div class="nav-actions">
-                <a href="login.php" class="btn btn-ghost btn-sm btn-login">Log in</a>
-                <a href="student/register.php" class="btn btn-primary btn-sm">Create account</a>
-                <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                <a href="login.php" class="btn btn-prussian btn-sm">Log in</a>
+                <button class="hamburger" id="navToggle" aria-label="Toggle navigation drawer" aria-expanded="false" aria-controls="navMenu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
                 </button>
             </div>
         </div>
     </header>
 
     <main>
-    <!-- ================= HERO ================= -->
+    <!-- ================= HERO SECTION ================= -->
     <section class="hero" id="home">
-        <div class="hero-bg" aria-hidden="true">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-        </div>
+        <div class="hero-grid-bg" aria-hidden="true"></div>
 
-        <div class="container hero-grid">
+        <div class="container hero-stage">
             <div>
-                <div class="hero-kicker"><b><span class="live-dot"></span>New term</b> Everything your campus runs on, together</div>
-                <h1 class="hero-title">Your <span class="hl">whole semester</span>, in one place.</h1>
-                <p class="hero-desc">
-                    AcadNexus connects students and faculty in a single workspace. Hand in assignments, watch attendance, read announcements, book a mentor and check results without switching tools.
-                </p>
-                <div class="hero-buttons">
-                    <a href="login.php" class="btn btn-primary">Log in to your workspace
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </a>
-                    <a href="#features" class="btn btn-ghost">See what's inside</a>
+                <div class="hero-pill">
+                    <span class="hero-pill-badge">
+                        <span class="pulse-indicator"></span>
+                        CAMPUS TELEMETRY ACTIVE
+                    </span>
+                    Unified Academic Governance Platform
                 </div>
-                <ul class="hero-checks">
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Assignments and grading</li>
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Attendance alerts</li>
-                    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Results and progress</li>
+                
+                <h1 class="hero-title">
+                    Clinical Precision for <br>
+                    <span class="teal-gradient-text">Higher Education.</span>
+                </h1>
+                
+                <p class="hero-desc">
+                    AcadNexus bridges university faculty, departmental heads, and students into a high-trust academic hub. Submissions, automated attendance auditing, research mentorship, and grade sheets in one clinical interface.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="login.php" class="btn btn-prussian">
+                        Access Academic Portal
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6"/>
+                        </svg>
+                    </a>
+                    <a href="#features" class="btn btn-glaze">Explore Governance Suite</a>
+                </div>
+
+                <ul class="hero-specs">
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Multi-Factor Faculty Access
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Continuous Attendance Auditing
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        Encrypted File Verification
+                    </li>
                 </ul>
             </div>
 
-            <!-- Product preview -->
-            <div class="mock" aria-label="Sample dashboard preview">
-                <div class="mock-grade float-c"><span>A-</span> Mid-term posted</div>
-
-                <div class="mock-window">
-                    <div class="mock-bar">
-                        <div class="mock-dots"><i></i><i></i><i></i></div>
-                        <strong>Today</strong>
-                        <span>Monday</span>
+            <!-- Clinical Quartz Telemetry Console Preview -->
+            <div class="console-wrap" aria-label="Live academic telemetry preview">
+                <div class="console-glow"></div>
+                <div class="console-window">
+                    <div class="console-header">
+                        <div class="console-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="console-title">
+                            ACADEMIC_OPS // REALTIME_CONSOLE
+                        </div>
+                        <span class="console-badge-live">● SYSTEM HEALTHY</span>
                     </div>
-                    <div class="mock-rows">
-                        <div class="mock-row">
-                            <div class="mock-time">9:00</div>
-                            <div class="mock-class"><i style="background:#0f766e;"></i><div><b>Database Systems</b><small>Room B-204</small></div></div>
-                            <span class="pill pill-teal">Present</span>
+
+                    <div class="console-body">
+                        <!-- Top Metrics -->
+                        <div class="console-glance-row">
+                            <div class="c-stat-box">
+                                <div class="c-stat-lbl">Department Quorum</div>
+                                <div class="c-stat-val">94.8% <small>▲</small></div>
+                            </div>
+                            <div class="c-stat-box">
+                                <div class="c-stat-lbl">Submissions</div>
+                                <div class="c-stat-val">128 <small>Clean</small></div>
+                            </div>
+                            <div class="c-stat-box">
+                                <div class="c-stat-lbl">Faculty Cohort</div>
+                                <div class="c-stat-val">24 <small>Active</small></div>
+                            </div>
                         </div>
-                        <div class="mock-row">
-                            <div class="mock-time">11:00</div>
-                            <div class="mock-class"><i style="background:#f4b63f;"></i><div><b>Operating Systems</b><small>Lab 3</small></div></div>
-                            <span class="pill pill-amber">Notes added</span>
+
+                        <!-- Course Streams -->
+                        <div class="c-stream-list">
+                            <div class="c-stream-item">
+                                <div class="c-stream-info">
+                                    <div class="c-stream-ico">
+                                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="c-stream-text">
+                                        <strong>Advanced Database Engines</strong>
+                                        <span>CS-401 • Room B-204 Lecture Hall</span>
+                                    </div>
+                                </div>
+                                <span class="c-status-chip chip-teal">Audited</span>
+                            </div>
+
+                            <div class="c-stream-item">
+                                <div class="c-stream-info">
+                                    <div class="c-stream-ico">
+                                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="c-stream-text">
+                                        <strong>Kernel Architecture Lab</strong>
+                                        <span>CS-403 • 42 Student Submissions</span>
+                                    </div>
+                                </div>
+                                <span class="c-status-chip chip-sky">Grading</span>
+                            </div>
+
+                            <div class="c-stream-item">
+                                <div class="c-stream-info">
+                                    <div class="c-stream-ico">
+                                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="c-stream-text">
+                                        <strong>Faculty Office Hours Slot</strong>
+                                        <span>Cabin 402 • Prof. Sarah Jenkins</span>
+                                    </div>
+                                </div>
+                                <span class="c-status-chip chip-amber">Reserved</span>
+                            </div>
                         </div>
-                        <div class="mock-row">
-                            <div class="mock-time">2:00</div>
-                            <div class="mock-class"><i style="background:#e4572e;"></i><div><b>Mentor meeting</b><small>Faculty cabin</small></div></div>
-                            <span class="pill pill-ink">Booked</span>
+
+                        <!-- Mini Micro telemetry card -->
+                        <div class="float-quartz-card fq-att">
+                            <div class="fq-att-circle">91%</div>
+                            <div>
+                                <strong style="font-size:13.5px; display:block;">Cohort Compliance Index</strong>
+                                <small style="color:#94a3b8; font-size:12px;">Validated against statutory university standards</small>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="mock-att float-a">
-                    <div class="ring-wrap">
-                        <svg viewBox="0 0 80 80" aria-hidden="true">
-                            <circle class="track" cx="40" cy="40" r="34" fill="none" stroke-width="8"/>
-                            <circle class="bar ring-anim" cx="40" cy="40" r="34" fill="none" stroke-width="8" stroke-dasharray="213.6" stroke-dashoffset="29.9"/>
-                        </svg>
-                        <div class="ring-num">86%</div>
-                    </div>
-                    <div><b>Attendance</b><small>Above the 75% minimum</small></div>
-                </div>
-
-                <div class="mock-due float-b">
-                    <small>Due tomorrow, 11:59 PM</small>
-                    <b>ER diagram and schema design</b>
-                    <span class="btn btn-primary btn-sm" style="pointer-events:none;">Submit file</span>
-                </div>
-                <span class="mock-caption">Sample preview</span>
             </div>
         </div>
     </section>
 
-    <!-- ================= PERKS ================= -->
-    <section class="perks" aria-label="Highlights">
-        <div class="container perks-grid">
-            <div class="perk reveal" style="--d:0s;">
-                <div class="perk-ico"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
-                <div><b>Learning resources</b><small>Slides, notes and references</small></div>
-            </div>
-            <div class="perk reveal" style="--d:0.08s;">
-                <div class="perk-ico"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-                <div><b>Faculty and peers</b><small>Book time, collaborate</small></div>
-            </div>
-            <div class="perk reveal" style="--d:0.16s;">
-                <div class="perk-ico"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
-                <div><b>Academic progress</b><small>Marks, GPA and charts</small></div>
-            </div>
-            <div class="perk reveal" style="--d:0.24s;">
-                <div class="perk-ico"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
-                <div><b>Stay organised</b><small>Deadlines, alerts, notices</small></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= MARQUEE ================= -->
-    <div class="marquee" aria-label="Platform features">
-        <div class="marquee-track">
+    <!-- ================= RUNNING TICKER STRIP ================= -->
+    <div class="ticker-strip" aria-label="System components">
+        <div class="ticker-track">
             <?php for ($i = 0; $i < 2; $i++): ?>
                 <?php foreach ($ticker as $item): ?>
-                    <span class="marquee-item" <?php echo $i === 1 ? 'aria-hidden="true"' : ''; ?>>
-                        <?php echo htmlspecialchars($item); ?>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
-                    </span>
+                    <div class="ticker-unit" <?php echo $i === 1 ? 'aria-hidden="true"' : ''; ?>>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/>
+                        </svg>
+                        <span><?php echo htmlspecialchars($item); ?></span>
+                    </div>
                 <?php endforeach; ?>
             <?php endfor; ?>
         </div>
     </div>
 
-    <!-- ================= FEATURES (BENTO) ================= -->
+    <!-- ================= GOVERNANCE SUITE (BENTO GRID) ================= -->
     <section class="section" id="features">
         <div class="container">
-            <div class="section-head reveal">
-                <span class="section-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>Everything in one login</span>
-                <h2 class="section-title">Everything a semester asks of you, already organised</h2>
-                <p class="section-sub">Each part of academic life has its own place, and they all share the same login.</p>
+            <div class="section-header reveal">
+                <span class="section-tag">Clinical Quartz Architecture</span>
+                <h2 class="section-heading">Designed for rigorous university governance</h2>
+                <p class="section-subtext">Eliminating disparate spreadsheets, lost attachments, and manual attendance logs with an integrated academic registry.</p>
             </div>
 
-            <div class="bento">
-                <!-- Assignments -->
-                <article class="tile t-assign reveal" style="--d:0s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
-                    <h3>Assignments</h3>
-                    <p>Faculty post work with deadlines. Students upload files, and uploads are validated automatically. Grades and feedback come back to the same page.</p>
-                    <div class="tile-visual">
-                        <div class="list-ui">
-                            <div class="list-item"><div><b>Normalisation worksheet</b><small>Database Systems</small></div><span class="pill pill-teal">Submitted</span></div>
-                            <div class="list-item"><div><b>Process scheduling report</b><small>Operating Systems</small></div><span class="pill pill-coral">Due tomorrow</span></div>
-                            <div class="list-item"><div><b>Sorting algorithms quiz</b><small>Data Structures</small></div><span class="pill pill-amber">Graded 18/20</span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Attendance -->
-                <article class="tile t-attend t-dark reveal" style="--d:0.08s;">
-                    <div class="ring-wrap" style="flex-shrink:0; width:96px; height:96px;">
-                        <svg viewBox="0 0 80 80" aria-hidden="true">
-                            <circle class="track" cx="40" cy="40" r="34" fill="none" stroke-width="8"/>
-                            <circle class="bar" cx="40" cy="40" r="34" fill="none" stroke-width="8" stroke-dasharray="213.6" stroke-dashoffset="48"/>
+            <div class="bento-grid">
+                <!-- 1. Assignments Tile -->
+                <article class="q-tile tile-span-3 reveal" style="--d:0s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
-                        <div class="ring-num" style="font-size:22px;">78%</div>
                     </div>
-                    <div>
-                        <h3>Attendance</h3>
-                        <p>Course-wise percentages update after every class, and a warning appears before a subject drops below the threshold.</p>
-                    </div>
-                </article>
-
-                <!-- Announcements -->
-                <article class="tile t-announce reveal" style="--d:0.16s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg></div>
-                    <h3>Announcements</h3>
-                    <p>Exam schedules and department notices reach the right batch, with priority labels so nothing urgent gets buried.</p>
-                    <div class="tile-visual">
-                        <div class="list-ui">
-                            <div class="list-item"><div><b>Mid-term timetable released</b></div><span class="pill pill-coral">Urgent</span></div>
-                            <div class="list-item"><div><b>Library hours extended</b></div><span class="pill pill-teal">Notice</span></div>
+                    <h3>Coursework Evaluation & Submissions</h3>
+                    <p>Faculty formulate assignments with strict deadlines and MIME-type integrity checks. Students upload deliverables with timestamped signatures, and grades reflect immediately in transcripts.</p>
+                    <div class="q-tile-visual">
+                        <div class="q-list">
+                            <div class="q-list-item">
+                                <div><b>Relational Algebra Schema</b><br><small style="color:var(--text-muted);">Database Systems • Prof. Miller</small></div>
+                                <span class="c-status-chip chip-teal">Graded (96/100)</span>
+                            </div>
+                            <div class="q-list-item">
+                                <div><b>Distributed Lock Protocol</b><br><small style="color:var(--text-muted);">Operating Systems • Due 23:59</small></div>
+                                <span class="c-status-chip chip-amber">In Review</span>
+                            </div>
                         </div>
                     </div>
                 </article>
 
-                <!-- Materials -->
-                <article class="tile t-materials reveal" style="--d:0s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-                    <h3>Course materials</h3>
-                    <p>Slides, PDFs and reference notes live with the course, not in a chat thread.</p>
-                    <div class="tile-visual">
-                        <div class="chip-row">
-                            <span class="chip file"><em style="background:#e4572e;">PDF</em>Unit 3 notes</span>
-                            <span class="chip file"><em style="background:#f4b63f; color:#0b2623;">PPT</em>Lecture 8</span>
-                            <span class="chip file"><em style="background:#0f766e;">DOC</em>Lab guide</span>
+                <!-- 2. Attendance Tile -->
+                <article class="q-tile tile-span-3 reveal" style="--d:0.08s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3>Automated Attendance Telemetry</h3>
+                    <p>Live session auditing calculates cohort percentage against the mandatory 75% university quorum. Students with deficit trajectories receive automated notices before exams.</p>
+                    <div class="q-tile-visual">
+                        <div style="background:#f8fafc; border:1px solid var(--quartz-border); border-radius:var(--radius-md); padding:16px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                <span style="font-size:13px; font-weight:700; color:var(--prussian-900);">Cohort Attendance Ratio</span>
+                                <strong style="font-family:var(--font-mono); color:var(--teal-primary);">88.4% Quorum</strong>
+                            </div>
+                            <div style="height:8px; background:#e2e8f0; border-radius:99px; overflow:hidden;">
+                                <div style="width:88.4%; height:100%; background:linear-gradient(90deg, var(--teal-primary), var(--teal-bright)); border-radius:99px;"></div>
+                            </div>
                         </div>
                     </div>
                 </article>
 
-                <!-- Appointments -->
-                <article class="tile t-appoint t-tint reveal" style="--d:0.08s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-                    <h3>Faculty appointments</h3>
-                    <p>Pick an open slot with a professor for guidance, doubt-clearing or mentoring.</p>
-                    <div class="tile-visual">
-                        <div class="chip-row">
-                            <span class="chip">10:00</span>
-                            <span class="chip on">11:30</span>
-                            <span class="chip">2:00</span>
-                            <span class="chip">4:15</span>
+                <!-- 3. Syllabus Repositories -->
+                <article class="q-tile tile-span-2 reveal" style="--d:0.16s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 4.5A2.5 2.5 0 016.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15z"/>
+                        </svg>
+                    </div>
+                    <h3>Course Repositories</h3>
+                    <p>Centralized distribution of curriculum slides, lab guides, and research references with strict file verification.</p>
+                </article>
+
+                <!-- 4. Faculty Advisory -->
+                <article class="q-tile tile-span-2 reveal" style="--d:0.24s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Faculty Advisory Desk</h3>
+                    <p>Dedicated appointment booking prevents email chaos and protects faculty office hours with automated scheduling.</p>
+                </article>
+
+                <!-- 5. Academic Performance -->
+                <article class="q-tile tile-span-2 reveal" style="--d:0.32s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3>Performance Telemetry</h3>
+                    <p>Departmental marks distribution and automated GPA computation rendered via clinical vector graphs.</p>
+                    <div class="q-tile-visual">
+                        <div class="tele-chart-bars">
+                            <span class="tele-bar" style="height:45%;"></span>
+                            <span class="tele-bar" style="height:65%;"></span>
+                            <span class="tele-bar" style="height:55%;"></span>
+                            <span class="tele-bar" style="height:80%;"></span>
+                            <span class="tele-bar" style="height:92%;"></span>
                         </div>
                     </div>
                 </article>
 
-                <!-- Progress -->
-                <article class="tile t-progress reveal" style="--d:0.16s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
-                    <h3>Academic progress</h3>
-                    <p>Charts show how your performance moves from one semester to the next.</p>
-                    <div class="tile-visual">
-                        <div class="bars" aria-hidden="true">
-                            <span style="height:45%;"></span><span style="height:58%;"></span><span style="height:52%;"></span><span style="height:74%;"></span><span style="height:88%;"></span>
-                        </div>
-                        <div class="bars-labels"><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span></div>
+                <!-- 6. Project Mentorship -->
+                <article class="q-tile tile-span-2 reveal" style="--d:0.4s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
                     </div>
+                    <h3>Capstone Mentorship</h3>
+                    <p>Faculty-guided student project incubators with milestone trackers, supervisor approvals, and deliverable reviews.</p>
                 </article>
 
-                <!-- Projects -->
-                <article class="tile t-projects reveal" style="--d:0s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
-                    <h3>Project mentorship</h3>
-                    <p>Track milestones and collect advisor feedback in one running thread.</p>
-                    <div class="tile-visual">
-                        <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:600; color:var(--ink);"><span>Smart attendance app</span><span>65%</span></div>
-                        <div class="rail"><i style="--w:65%; width:65%;"></i></div>
-                        <span class="pill pill-teal">Milestone 3 of 5</span>
+                <!-- 7. Official Announcements -->
+                <article class="q-tile tile-span-2 reveal" style="--d:0.48s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                        </svg>
                     </div>
+                    <h3>Departmental Bulletins</h3>
+                    <p>Broadcast circulars with image notices and role-targeted dissemination for examinations and symposiums.</p>
                 </article>
 
-                <!-- Results -->
-                <article class="tile t-results reveal" style="--d:0.08s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
-                    <h3>Exams and results</h3>
-                    <p>Internal marks, assignment grades and your GPA, as soon as they're published.</p>
-                    <div class="tile-visual">
-                        <table class="mini-table" aria-hidden="true">
-                            <tr><td>Database Systems</td><td>A</td></tr>
-                            <tr><td>Operating Systems</td><td>A-</td></tr>
-                            <tr><td>Data Structures</td><td>B+</td></tr>
-                        </table>
+                <!-- 8. Digital Campus Pass (Prussian Card) -->
+                <article class="q-tile q-tile-prussian tile-span-2 reveal" style="--d:0.56s;">
+                    <div class="q-tile-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/>
+                        </svg>
                     </div>
-                </article>
-
-                <!-- Digital pass -->
-                <article class="tile t-pass t-dark reveal" style="--d:0.16s;">
-                    <div class="tile-ico"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/></svg></div>
-                    <h3>Digital student pass</h3>
-                    <p>A scannable ID with your roll number and batch, plus a PDF you can download.</p>
-                    <div class="tile-visual">
-                        <div class="qr-mini" aria-hidden="true">
-                            <svg viewBox="0 0 21 21" width="100%" height="100%" shape-rendering="crispEdges" fill="#0b2623">
-                                <path d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM14 0h7v7h-7zM15 1v5h5V1zM16 2h3v3h-3zM0 14h7v7H0zM1 15v5h5v-5zM2 16h3v3H2z"/>
-                                <path d="M8 0h2v2H8zM11 1h2v2h-2zM8 4h2v2H8zM10 8h2v2h-2zM8 10h2v2H8zM13 9h2v2h-2zM16 9h2v2h-2zM19 10h2v2h-2zM12 12h2v2h-2zM15 13h2v2h-2zM18 14h2v2h-2zM9 14h2v2H9zM12 16h2v2h-2zM15 17h2v2h-2zM18 18h2v2h-2zM9 18h2v2H9zM0 8h2v2H0zM3 9h2v2H3zM6 8h2v2H6zM4 11h2v2H4zM1 12h2v2H1zM12 5h2v2h-2z"/>
-                            </svg>
-                        </div>
-                    </div>
+                    <h3>Digital ID Pass</h3>
+                    <p>Encrypted QR credential with roll number and program metadata, ready for instant PDF lanyard rendering.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- ================= HOW IT WORKS ================= -->
-    <section class="section how" id="how-it-works">
-        <div class="container how-grid">
+    <!-- ================= HOW IT WORKS: Architectural Flow ================= -->
+    <section class="section section-workflow" id="how-it-works">
+        <div class="container wf-grid">
             <div class="reveal">
-                <span class="section-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>Quick start</span>
-                <h2 class="section-title">Up and running in three steps</h2>
-                <p class="section-sub">No setup calls and no spreadsheets to import. Sign up, join your courses and start using it the same day.</p>
-                <div style="margin-top:30px; display:flex; gap:12px; flex-wrap:wrap;">
-                    <a href="student/register.php" class="btn btn-primary">Register as student</a>
-                    <a href="faculty/register.php" class="btn btn-ghost">Register as faculty</a>
+                <span class="section-tag">Campus Deployment</span>
+                <h2 class="section-heading">Frictionless onboarding in three steps</h2>
+                <p class="section-subtext">No cumbersome enterprise procurement cycles or complex server configurations. AcadNexus deploys natively for university departments.</p>
+                <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="faculty/register.php" class="btn btn-prussian">Register Faculty Account</a>
+                    <a href="student/register.php" class="btn btn-glaze">Register Student</a>
                 </div>
             </div>
 
-            <div class="steps">
-                <div class="step reveal" style="--d:0s;">
-                    <div class="step-num">1</div>
+            <div class="wf-steps">
+                <div class="wf-step reveal" style="--d:0s;">
+                    <div class="wf-step-idx">01</div>
                     <div>
-                        <h3>Create your account</h3>
-                        <p>Register as a student or faculty member with your department, course and roll ID.</p>
+                        <h3>Institutional Registry</h3>
+                        <p>Authenticate with your verified university department and institutional credentials for role validation.</p>
                     </div>
                 </div>
-                <div class="step reveal" style="--d:0.1s;">
-                    <div class="step-num">2</div>
+
+                <div class="wf-step reveal" style="--d:0.1s;">
+                    <div class="wf-step-idx">02</div>
                     <div>
-                        <h3>Connect and learn</h3>
-                        <p>Open course materials, submit assignments, book time with faculty and join academic projects.</p>
+                        <h3>Course Allocation & Syllabus Sync</h3>
+                        <p>Faculty link assigned lecture cohorts, configure grade weights, and publish syllabus assets seamlessly.</p>
                     </div>
                 </div>
-                <div class="step reveal" style="--d:0.2s;">
-                    <div class="step-num">3</div>
+
+                <div class="wf-step reveal" style="--d:0.2s;">
+                    <div class="wf-step-idx">03</div>
                     <div>
-                        <h3>Track your progress</h3>
-                        <p>Watch attendance against the threshold, check exam results and see your growth on the dashboard.</p>
+                        <h3>Continuous Telemetry & Auditing</h3>
+                        <p>Track student submissions, audit attendance compliance, and log marks directly into department records.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= ROLES ================= -->
+    <!-- ================= DUAL ROLE WORKSPACES ================= -->
     <section class="section" id="roles">
         <div class="container">
-            <div class="section-head reveal">
-                <span class="section-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>Built for both sides</span>
-                <h2 class="section-title">One hub, two workspaces</h2>
-                <p class="section-sub">Students and faculty see the tools that matter to them.</p>
+            <div class="section-header reveal">
+                <span class="section-tag">Role-Based Experience</span>
+                <h2 class="section-heading">Dedicated workspaces for academic staff and scholars</h2>
+                <p class="section-subtext">Tailored tools designed specifically for faculty management workflows and student learning telemetry.</p>
             </div>
 
             <div class="reveal">
-                <div class="tabs" role="tablist" aria-label="Choose a workspace">
-                    <button class="tab" role="tab" id="tab-student" aria-selected="true" aria-controls="panel-student" data-target="panel-student">Student</button>
-                    <button class="tab" role="tab" id="tab-faculty" aria-selected="false" aria-controls="panel-faculty" data-target="panel-faculty">Faculty</button>
+                <div class="role-switch-nav" role="tablist" aria-label="Select role workspace">
+                    <button class="role-tab-btn" role="tab" id="tab-faculty" aria-selected="true" aria-controls="panel-faculty" data-target="panel-faculty">Faculty Workspace</button>
+                    <button class="role-tab-btn" role="tab" id="tab-student" aria-selected="false" aria-controls="panel-student" data-target="panel-student">Student Portal</button>
                 </div>
 
-                <!-- Student -->
-                <div class="role-panel active" id="panel-student" role="tabpanel" aria-labelledby="tab-student">
-                    <div class="role-copy">
-                        <h3>Student workspace</h3>
-                        <p>Know what's due, how you're doing and who to ask for help.</p>
-                        <ul class="role-list">
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Learn and access course materials</li>
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Submit assignments before the deadline</li>
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Collaborate on projects with mentors</li>
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Track attendance, marks and GPA</li>
+                <!-- Faculty Workspace Panel -->
+                <div class="workspace-panel active" id="panel-faculty" role="tabpanel" aria-labelledby="tab-faculty">
+                    <div class="ws-body">
+                        <h3>Faculty Governance Hub</h3>
+                        <p>Designed for university professors, lecturers, and teaching assistants to conduct academic operations without administrative friction.</p>
+                        
+                        <ul class="ws-checklist">
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Course cohort roster management and syllabus deployment
+                            </li>
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Assignment creation with dual-action inline viewing and direct download
+                            </li>
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Instant session attendance marking and statutory deficit calculation
+                            </li>
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Office hours advisory management with one-click status locking
+                            </li>
                         </ul>
-                        <div class="role-actions">
-                            <a href="login.php" class="btn btn-amber">Student log in</a>
-                            <a href="student/register.php" class="btn btn-outline-light">Create student account</a>
+
+                        <div class="ws-actions">
+                            <a href="login.php" class="btn btn-teal">Sign in as Faculty</a>
+                            <a href="faculty/register.php" class="btn btn-outline-prussian">Faculty Registration</a>
                         </div>
                     </div>
-                    <div class="role-visual" aria-hidden="true">
-                        <div class="rv-card"><div><b>Assignment due</b><small>ER diagram, tomorrow</small></div><span class="pill pill-coral">1 day</span></div>
-                        <div class="rv-card"><div><b>Attendance</b><small>Database Systems</small></div><span class="pill pill-teal">86%</span></div>
-                        <div class="rv-card"><div><b>Latest result</b><small>Operating Systems mid-term</small></div><span class="pill pill-amber">A-</span></div>
+
+                    <div class="ws-aside" aria-hidden="true">
+                        <div class="ws-tele-pill">
+                            <div>
+                                <strong>Submissions Ready For Review</strong>
+                                <small>Operating Systems • Section A</small>
+                            </div>
+                            <span class="c-status-chip chip-teal">12 Pending</span>
+                        </div>
+
+                        <div class="ws-tele-pill">
+                            <div>
+                                <strong>Daily Attendance Sheet</strong>
+                                <small>Database Systems • Lecture 18</small>
+                            </div>
+                            <span class="c-status-chip chip-sky">Recorded</span>
+                        </div>
+
+                        <div class="ws-tele-pill">
+                            <div>
+                                <strong>Advisory Appointments</strong>
+                                <small>Research Mentorship</small>
+                            </div>
+                            <span class="c-status-chip chip-amber">2 Scheduled</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Faculty -->
-                <div class="role-panel" id="panel-faculty" role="tabpanel" aria-labelledby="tab-faculty">
-                    <div class="role-copy">
-                        <h3>Faculty workspace</h3>
-                        <p>Run your classes without chasing paperwork.</p>
-                        <ul class="role-list">
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Manage enrolled classes and materials</li>
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Grade submissions with feedback</li>
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Mark attendance and enter marks</li>
-                            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>Guide student projects and appointments</li>
+                <!-- Student Workspace Panel -->
+                <div class="workspace-panel" id="panel-student" role="tabpanel" aria-labelledby="tab-student">
+                    <div class="ws-body">
+                        <h3>Student Academic Dashboard</h3>
+                        <p>A clean, transparent view of your semester's progress, upcoming milestones, and direct communication channels with your instructors.</p>
+                        
+                        <ul class="ws-checklist">
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                One-click syllabus access and curated course reference libraries
+                            </li>
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Timestamped homework and project deliverable submission
+                            </li>
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Continuous attendance tracking with shortage alerts before 75%
+                            </li>
+                            <li>
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                Digital student lanyard pass with verification QR and PDF export
+                            </li>
                         </ul>
-                        <div class="role-actions">
-                            <a href="login.php" class="btn btn-amber">Faculty log in</a>
-                            <a href="faculty/register.php" class="btn btn-outline-light">Create faculty account</a>
+
+                        <div class="ws-actions">
+                            <a href="login.php" class="btn btn-teal">Sign in as Student</a>
+                            <a href="student/register.php" class="btn btn-outline-prussian">Student Registration</a>
                         </div>
                     </div>
-                    <div class="role-visual" aria-hidden="true">
-                        <div class="rv-card"><div><b>Submissions to review</b><small>Operating Systems, Section A</small></div><span class="pill pill-amber">12 new</span></div>
-                        <div class="rv-card"><div><b>Today's attendance</b><small>Database Systems</small></div><span class="pill pill-teal">Ready</span></div>
-                        <div class="rv-card"><div><b>Appointment requests</b><small>Project guidance</small></div><span class="pill pill-coral">3 pending</span></div>
+
+                    <div class="ws-aside" aria-hidden="true">
+                        <div class="ws-tele-pill">
+                            <div>
+                                <strong>Upcoming Assignment</strong>
+                                <small>ER Model Specification</small>
+                            </div>
+                            <span class="c-status-chip chip-amber">Due Tomorrow</span>
+                        </div>
+
+                        <div class="ws-tele-pill">
+                            <div>
+                                <strong>Semester Attendance</strong>
+                                <small>Safe above 75% threshold</small>
+                            </div>
+                            <span class="c-status-chip chip-teal">86% Safe</span>
+                        </div>
+
+                        <div class="ws-tele-pill">
+                            <div>
+                                <strong>Published Exam Grade</strong>
+                                <small>Software Engineering Mid-term</small>
+                            </div>
+                            <span class="c-status-chip chip-sky">Grade: A-</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ================= CTA ================= -->
-    <section class="cta">
+    <!-- ================= CLINICAL QUARTZ CTA ================= -->
+    <section class="cta-section">
         <div class="container">
-            <div class="cta-box reveal">
+            <div class="cta-quartz-box reveal">
                 <div>
-                    <h2>Make this semester the organised one.</h2>
-                    <p>Join the students and faculty already running their coursework from a single hub.</p>
+                    <h2>Elevate Your Institution's Academic Workflow.</h2>
+                    <p>Experience the certainty and elegance of a clinical-grade academic hub. Built specifically for universities, verified by faculty, and loved by students.</p>
                 </div>
-                <div class="cta-actions">
-                    <a href="student/register.php" class="btn btn-amber">Create an account</a>
-                    <a href="login.php" class="btn btn-outline-light">I already have one</a>
+                <div class="cta-btn-group">
+                    <a href="student/register.php" class="btn btn-teal">Create Student Account</a>
+                    <a href="faculty/register.php" class="btn btn-outline-prussian">Faculty Onboarding</a>
+                    <a href="login.php" class="btn btn-glaze">Existing Portal Sign In</a>
                 </div>
             </div>
         </div>
     </section>
     </main>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ================= UNIVERSITY FOOTER ================= -->
     <footer class="footer">
-        <div class="footer-mark" aria-hidden="true">AcadNexus</div>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
+                <div class="footer-brand-col">
                     <a href="index.php" class="brand">
-                        <span class="brand-mark">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f4b63f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.42a12.08 12.08 0 01.67 6.48A11.95 11.95 0 0112 20.05a11.95 11.95 0 01-6.82-3 12.08 12.08 0 01.66-6.48L12 14z"/></svg>
+                        <span class="brand-gem">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                <path d="M12 14l6.16-3.42a12.08 12.08 0 01.67 6.48A11.95 11.95 0 0112 20.05a11.95 11.95 0 01-6.82-3 12.08 12.08 0 01.66-6.48L12 14z"/>
+                            </svg>
                         </span>
-                        <span class="brand-name">AcadNexus</span>
+                        <span class="brand-name" style="color:#ffffff;">AcadNexus</span>
                     </a>
-                    <p>The unified student–faculty academic hub. Connect, learn, collaborate and grow.</p>
+                    <p>Clinical Quartz Academic Telemetry & Governance Suite. Standardizing higher education workflows with clinical precision.</p>
                 </div>
-                <div>
-                    <h4>Explore</h4>
+
+                <div class="footer-col">
+                    <h4>Platform</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#how-it-works">How it works</a></li>
-                        <li><a href="#roles">Workspaces</a></li>
+                        <li><a href="#home">Executive Overview</a></li>
+                        <li><a href="#features">Governance Suite</a></li>
+                        <li><a href="#how-it-works">Architecture</a></li>
+                        <li><a href="#roles">Faculty & Student Hubs</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Portals</h4>
+
+                <div class="footer-col">
+                    <h4>Access Portals</h4>
                     <ul>
-                        <li><a href="login.php">Log in</a></li>
-                        <li><a href="student/register.php">Student registration</a></li>
-                        <li><a href="faculty/register.php">Faculty registration</a></li>
+                        <li><a href="login.php">Institutional Login</a></li>
+                        <li><a href="student/register.php">Student Registration</a></li>
+                        <li><a href="faculty/register.php">Faculty Registration</a></li>
+                        <li><a href="login.php">Administrative Console</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4>Support</h4>
+
+                <div class="footer-col">
+                    <h4>Governance</h4>
                     <ul>
-                        <li><a href="#">Privacy policy</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Campus support</a></li>
+                        <li><a href="#">Academic Ethics</a></li>
+                        <li><a href="#">Security & Encryption</a></li>
+                        <li><a href="#">Statutory Quorum Rules</a></li>
+                        <li><a href="#">Help & IT Support</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <span>&copy; <?php echo date('Y'); ?> AcadNexus. All rights reserved.</span>
-                <span>Connect. Learn. Collaborate. Grow.</span>
+                <span>&copy; <?php echo date('Y'); ?> AcadNexus Academic Hub. Steel Prussian & Clinical Quartz Architecture.</span>
+                <span>High-Trust University Software</span>
             </div>
         </div>
     </footer>
 
+    <!-- Back to top floating button -->
     <button class="to-top" id="toTop" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
     </button>
 
     <script>
-        // Mobile navigation
+        // Drawer Mobile Navigation
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
-        navToggle.addEventListener('click', () => {
-            const open = navMenu.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            navMenu.classList.remove('open');
-            navToggle.setAttribute('aria-expanded', 'false');
-        }));
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const open = navMenu.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }));
+        }
 
-        // Student / faculty tabs
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => {
+        // Student / Faculty Workspace Tab Switcher
+        const roleTabs = document.querySelectorAll('.role-tab-btn');
+        roleTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                tabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
-                document.querySelectorAll('.role-panel').forEach(p => p.classList.toggle('active', p.id === tab.dataset.target));
+                roleTabs.forEach(t => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+                document.querySelectorAll('.workspace-panel').forEach(p => {
+                    p.classList.toggle('active', p.id === tab.dataset.target);
+                });
             });
         });
 
-        // Scroll progress, sticky navbar shadow, back-to-top
-        const progress = document.getElementById('progress');
-        const navbar = document.getElementById('navbar');
-        const toTop = document.getElementById('toTop');
-        let ticking = false;
-        function onScroll() {
+        // Scroll Progress & Navbar Elevation
+        const progressEl = document.getElementById('progress');
+        const navbarEl = document.getElementById('navbar');
+        const toTopBtn = document.getElementById('toTop');
+        let isTicking = false;
+
+        function handleScrollTelemetry() {
             const y = window.scrollY;
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
-            navbar.classList.toggle('scrolled', y > 10);
-            toTop.classList.toggle('show', y > 700);
-            ticking = false;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            if (progressEl) {
+                progressEl.style.transform = 'scaleX(' + (maxScroll > 0 ? Math.min(1, y / maxScroll) : 0) + ')';
+            }
+            if (navbarEl) {
+                navbarEl.classList.toggle('scrolled', y > 15);
+            }
+            if (toTopBtn) {
+                toTopBtn.classList.toggle('show', y > 600);
+            }
+            isTicking = false;
         }
+
         window.addEventListener('scroll', () => {
-            if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+            if (!isTicking) {
+                requestAnimationFrame(handleScrollTelemetry);
+                isTicking = true;
+            }
         }, { passive: true });
-        onScroll();
-        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        handleScrollTelemetry();
 
-        // Reveal on scroll
-        const revealEls = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window) {
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-                });
-            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-            revealEls.forEach(el => io.observe(el));
-        } else {
-            revealEls.forEach(el => el.classList.add('in'));
+        if (toTopBtn) {
+            toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         }
 
-        // Cursor spotlight on feature tiles
-        document.querySelectorAll('.tile').forEach(tile => {
+        // Intersection Observer Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('in');
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            revealElements.forEach(el => observer.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('in'));
+        }
+
+        // Spotlight Glow on Bento Tiles
+        document.querySelectorAll('.q-tile').forEach(tile => {
             tile.addEventListener('mousemove', (e) => {
-                const r = tile.getBoundingClientRect();
-                tile.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-                tile.style.setProperty('--my', (e.clientY - r.top) + 'px');
+                const rect = tile.getBoundingClientRect();
+                tile.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+                tile.style.setProperty('--my', (e.clientY - rect.top) + 'px');
             });
         });
     </script>

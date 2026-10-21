@@ -252,13 +252,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 15px 30px rgba(37, 99, 235, 0.35);
         }
 
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .back-home-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateX(-2px);
+            color: #ffffff;
+        }
+
         .back-login {
             text-align: center;
             margin-top: 20px;
             font-size: 14px;
             color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
         }
         .back-login a { color: var(--accent-blue); text-decoration: none; font-weight: 700; }
+        .back-index-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted) !important;
+            font-size: 13px;
+            font-weight: 600 !important;
+            transition: color 0.2s ease;
+        }
+        .back-index-link:hover {
+            color: var(--accent-blue) !important;
+        }
 
         @media (max-width: 768px) {
             body {
@@ -303,14 +339,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="reg-container">
         <div class="reg-header">
-            <div class="brand-logo">
-                <div class="brand-icon">
-                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path></svg>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <a href="../index.php" class="back-home-btn" title="Back to AcadNexus Home">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <span>Back to Home</span>
+                </a>
+                <div class="brand-logo">
+                    <div class="brand-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path></svg>
+                    </div>
+                    AcadNexus
                 </div>
-                AcadNexus
             </div>
             <div>
-                <span style="background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;">STUDENT REGISTRATION</span>
+                <span style="background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">STUDENT REGISTRATION</span>
             </div>
         </div>
 
@@ -428,7 +470,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit" class="btn-submit">CREATE STUDENT ACCOUNT</button>
 
                 <div class="back-login">
-                    Already have an account? <a href="../login.php">Sign In Here</a>
+                    <div>Already have an account? <a href="../login.php">Sign In Here</a></div>
+                    <a href="../index.php" class="back-index-link">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        <span>Return to Main Website</span>
+                    </a>
                 </div>
             </form>
         </div>

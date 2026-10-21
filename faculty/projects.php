@@ -245,7 +245,7 @@ require_once __DIR__ . '/../includes/header.php';
                         <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin: 0 0 4px 0;"><?php echo htmlspecialchars($p['title']); ?></h3>
                         <div style="font-size: 13.5px; color: #64748b;">
                             <?php if ($hasStudent): ?>
-                                Student Mentee: <strong style="color: #0f172a;"><?php echo htmlspecialchars($p['stu_fn'] . ' ' . $p['stu_ln']); ?></strong> (<?php echo htmlspecialchars($roll); ?>) • <?php echo htmlspecialchars($p['program'] ?? 'Academic Program'); ?>
+                                Student Mentee: <strong style="color: #0f172a;"><?php echo htmlspecialchars($p['stu_fn'] . ' ' . $p['stu_ln']); ?></strong> (<?php echo htmlspecialchars($roll); ?>) ï¿½ <?php echo htmlspecialchars($p['program'] ?? 'Academic Program'); ?>
                             <?php else: ?>
                                 <span style="color: #b45309; font-weight: 700;">?? Unassigned: Please select a student below to assign this project.</span>
                             <?php endif; ?>
